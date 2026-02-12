@@ -307,3 +307,34 @@ if (rows || calendar) renderSchedule();
 window.addEventListener("load", () => {
   document.body.classList.add("loaded");
 });
+
+// ===== RAMAZAN IMAGE ZOOM =====
+
+document.addEventListener("DOMContentLoaded", function () {
+  const poster = document.getElementById("ramazanPoster");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const closeBtn = document.getElementById("lightboxClose");
+
+  if (poster && lightbox) {
+    // открыть
+    poster.addEventListener("click", function () {
+      lightbox.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+
+    // закрыть по кнопке
+    closeBtn.addEventListener("click", function () {
+      lightbox.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+
+    // закрыть по фону
+    lightbox.addEventListener("click", function (e) {
+      if (e.target === lightbox) {
+        lightbox.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  }
+});
