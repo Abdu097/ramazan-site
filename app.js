@@ -53,10 +53,12 @@ document.addEventListener("keydown", (e) => {
   if (ctrl && e.shiftKey && ["i","j","c"].includes(k)) e.preventDefault();
 });
 
-// extra iOS protection
-document.addEventListener("gesturestart", (e) => e.preventDefault());
-document.addEventListener("dblclick", (e) => e.preventDefault());
-document.addEventListener("touchstart", () => {}, { passive: true });
+// iOS gestures: блокируем на сайте, но РАЗРЕШАЕМ внутри lightbox
+document.addEventListener("gesturestart", (e) => {
+  const lb = document.getElementById("lightbox");
+  const opened = lb && lb.classList.contains("is-open");
+  if (!opened) e.preventDefault();
+}, { passive: false });
 
 // ===== burger (бар болса) =====
 const burger = $("#burger");
