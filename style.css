@@ -187,16 +187,12 @@ a{ color:inherit; text-decoration:none; }
 
 .personRow{ display:flex; gap:10px; align-items:center; }
 .avatar{
-  width:55px; height:55px; border-radius:16px;
+  width:46px; height:46px; border-radius:14px;
   object-fit:cover;
   border:1px solid rgba(242,198,122,.22);
   background: rgba(0,0,0,.25);
 }
-.name{
-  font-weight:800;
-  font-size:18px;
-  line-height:1.2;
-}
+.name{ font-weight:800; }
 
 /* buttons */
 .btn{
