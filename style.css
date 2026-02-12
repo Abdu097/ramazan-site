@@ -673,3 +673,16 @@ body.loaded .heroRight > *:nth-child(5){ opacity:1; transform:translateY(0); tra
 
 /* smoother reveal (you already have reveal; this enhances it a bit) */
 .reveal{ transition: opacity .55s ease, transform .55s ease; }
+
+/* ===== Pinch zoom fix (НЕ меняет дизайн) ===== */
+.lightbox__inner{
+  touch-action: none;   /* важно: жесты идут в JS */
+  overflow: hidden;
+}
+
+#lightboxImg{
+  transform-origin: center center;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
