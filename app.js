@@ -46,7 +46,15 @@ const QARI = {
 };
 
 // Қай күн алынған / бос емес: осында қоясыз
-const TAKEN = {};
+const TAKEN = {
+  1: true,   // 19.02.2026
+  2: true,   // 20.02.2026
+  3: true,   // 21.02.2026
+  4: true,   // 22.02.2026
+  7: true,   // 25.02.2026
+  15: true,  // 05.03.2026
+  21: true,   // 11.03.2026
+};
 
 // ===== helpers =====
 const $ = (s) => document.querySelector(s);
