@@ -683,3 +683,9 @@ body.loaded .heroRight > *:nth-child(5){ opacity:1; transform:translateY(0); tra
   user-select: none;
   -webkit-user-drag: none;
 }
+
+.ramazanPoster img{
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
