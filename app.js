@@ -340,3 +340,125 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// ===== LIGHTBOX PINCH-ZOOM (готово) =====
+document.addEventListener("DOMContentLoaded", () => {
+  const poster = document.getElementById("ramazanPoster");
+  const lb = document.getElementById("lightbox");
+  const inner = document.getElementById("lightboxInner");
+  const img = document.getElementById("lightboxImg");
+  const closeBtn = document.getElementById("lightboxClose");
+
+  if (!poster || !lb || !inner || !img || !closeBtn) return;
+
+  // iOS: НЕ блокируем жесты, когда открыт lightbox
+  document.addEventListener("gesturestart", (e) => {
+    const opened = lb.style.display === "flex";
+    if (!opened) e.preventDefault();
+  }, { passive: false });
+
+  let scale = 1, lastScale = 1;
+  let tx = 0, ty = 0;
+  let startTx = 0, startTy = 0;
+
+  let isPanning = false;
+  let panStartX = 0, panStartY = 0;
+
+  let isPinching = false;
+  let startDist = 0;
+
+  let lastTap = 0;
+
+  const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
+
+  const apply = () => {
+    img.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
+  };
+
+  const reset = () => {
+    scale = 1; lastScale = 1;
+    tx = 0; ty = 0;
+    startTx = 0; startTy = 0;
+    apply();
+  };
+
+  const open = () => {
+    lb.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    reset();
+  };
+
+  const close = () => {
+    lb.style.display = "none";
+    document.body.style.overflow = "auto";
+    reset();
+  };
+
+  poster.addEventListener("click", open);
+  closeBtn.addEventListener("click", close);
+  lb.addEventListener("click", (e) => { if (e.target === lb) close(); });
+
+  const dist = (t1, t2) => {
+    const dx = t2.clientX - t1.clientX;
+    const dy = t2.clientY - t1.clientY;
+    return Math.hypot(dx, dy);
+  };
+
+  inner.addEventListener("touchstart", (e) => {
+    if (e.touches.length === 1) {
+      // double tap zoom
+      const now = Date.now();
+      if (now - lastTap < 280) {
+        if (scale > 1.05) reset();
+        else { scale = 2.2; lastScale = scale; apply(); }
+        lastTap = 0;
+        e.preventDefault();
+        return;
+      }
+      lastTap = now;
+
+      // pan
+      isPanning = true;
+      isPinching = false;
+      panStartX = e.touches[0].clientX;
+      panStartY = e.touches[0].clientY;
+      startTx = tx;
+      startTy = ty;
+    }
+
+    if (e.touches.length === 2) {
+      isPinching = true;
+      isPanning = false;
+      startDist = dist(e.touches[0], e.touches[1]);
+    }
+
+    e.preventDefault();
+  }, { passive: false });
+
+  inner.addEventListener("touchmove", (e) => {
+    if (isPinching && e.touches.length === 2) {
+      const d = dist(e.touches[0], e.touches[1]);
+      const ratio = d / startDist;
+      scale = clamp(lastScale * ratio, 1, 4);
+      apply();
+      e.preventDefault();
+      return;
+    }
+
+    if (isPanning && e.touches.length === 1) {
+      if (scale <= 1.02) return;
+      const x = e.touches[0].clientX;
+      const y = e.touches[0].clientY;
+      tx = startTx + (x - panStartX);
+      ty = startTy + (y - panStartY);
+      apply();
+      e.preventDefault();
+    }
+  }, { passive: false });
+
+  inner.addEventListener("touchend", () => {
+    if (isPinching) { lastScale = scale; isPinching = false; }
+    if (isPanning) isPanning = false;
+    if (scale <= 1.02) reset();
+  });
+});
