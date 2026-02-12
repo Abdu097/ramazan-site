@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>30 күн ауызашар графигі — Парасат мешіті</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+  </div>
+
+  <header class="header">
+    <div class="container header__row">
+      <a class="brand" href="index.html">
+        <span class="brand__moon">☾</span>
+        <span class="brand__text">
+          <span class="brand__title">30 күн ауызашар графигі</span>
+          <span class="brand__sub">Парасат мешіті</span>
+        </span>
+      </a>
+    </div>
+    <div class="scrollFill" id="scrollFill" aria-hidden="true"></div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>30 күн ауызашар графигі</h2>
+        <p class="muted">Бос/алынған күндер көрсетіледі. WhatsApp арқылы жазыласыз.</p>
+      </div>
+
+      <div class="tableWrap">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th>Күн</th>
+              <th>Күні</th>
+              <th>Статус</th>
+              <th>Адам</th>
+              <th>Жазылу</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+
+      <div class="calendar" id="calendar"></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footerRow">
+      <span>© <span id="year"></span> Парасат мешіті</span>
+      <a href="index.html" class="toTop">Басты бет ↑</a>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

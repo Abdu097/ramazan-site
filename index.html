@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Парасат мешіті — Ауызашарға жазылу</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="bg">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+  </div>
+
+  <!-- Header: тек логотип -->
+  <header class="header">
+    <div class="container header__row">
+      <a class="brand" href="index.html" aria-label="Басты бет">
+        <span class="brand__moon" aria-hidden="true">☾</span>
+        <span class="brand__text">
+          <span class="brand__title">Парасат мешіті</span>
+          <span class="brand__sub">Рамазан ауызашар графигі — 30 күн</span>
+        </span>
+      </a>
+    </div>
+    <div class="scrollFill" id="scrollFill" aria-hidden="true"></div>
+  </header>
+
+  <!-- HERO -->
+  <main class="hero">
+    <div class="container heroGrid">
+      <!-- left -->
+      <section class="heroLeft">
+        <div class="badge">✨ Рамазан айы құтты болсын ✨</div>
+
+        <h1 class="heroTitle">
+          Ауызашарға жазылу<br/>
+          графигі
+        </h1>
+
+        <p class="heroText">
+          Қай күн алынған / қай күн бос — график бетінде көрсетіледі.
+          Жазылу үшін WhatsApp арқылы байланысыңыз.
+        </p>
+
+        <div class="heroActions">
+          <!-- График бөлек бет -->
+          <a class="btn btn--primary" href="schedule.html" rel="noreferrer">
+            Графикті ашу
+          </a>
+
+          <!-- Sajda (сыртқы сайт) -->
+          <a class="btn btn--ghost"
+             href="https://sajda.com/ru/prayer-times/kazakhstan/atyrau-oblisi-atyrau/610529"
+             rel="noreferrer">
+            Sajda намаз уақыты
+          </a>
+        </div>
+
+        <!-- САДАҚА: бөлек бет -->
+        <a class="noteBar btn"
+           href="sadaqa.html"
+           rel="noreferrer"
+           style="display:flex; justify-content:center; margin-top:18px;">
+          Діни қызметті қолдау үшін садақа көмегіңіз үшін Алла разы болсын!
+        </a>
+
+        <!-- RAMAZAN TABLE -->
+        <div style="margin-top:18px;" id="ramazan">
+          <h2 style="margin:0 0 6px; font-size:22px;">Рамазан 2026 • Атырау</h2>
+          <p class="muted" style="margin:0 0 12px;">Ораза кестесі (ресми). Үлкейту үшін кестені басыңыз.</p>
+
+          <figure class="ramazanPoster" id="ramazanPoster">
+            <img
+              src="./ramazan-atyrau-2026.png"
+              alt="Рамазан 2026 Атырау – ораза кестесі"
+              loading="eager"
+              draggable="false"
+            />
+            <figcaption class="ramazanPoster__cap">Кестені үлкейту үшін басыңыз</figcaption>
+          </figure>
+        </div>
+
+      </section>
+
+      <!-- right -->
+      <aside class="heroRight sideStack">
+        <div class="card card--glass">
+          <h3>Қысқа нұсқаулық</h3>
+          <ol class="steps">
+            <li>График бетінен бос күнді таңдаңыз</li>
+            <li>WhatsApp батырмасын басыңыз</li>
+            <li>Күні, адам саны, аты-жөніңізді жазыңыз</li>
+          </ol>
+        </div>
+
+        <!-- ЕКІ КНОПКА -->
+        <div class="quickBtns">
+          <a class="btn btn--primary" href="schedule.html" rel="noreferrer">
+            30 күн ауызашар графигі
+          </a>
+
+          <a class="btn btn--ghost" href="dua.html" rel="noreferrer">
+            Дұғалар
+          </a>
+        </div>
+
+        <div class="grid2">
+          <div class="card card--glass reveal">
+            <h4>Бас имам</h4>
+            <div class="personRow">
+              <img class="avatar" src="imam.jpg" alt="Бас имам фотосы" draggable="false" />
+              <div>
+                <div class="name">Жасұлан Қуанышұлы</div>
+                <div class="muted small">Бас имам • Парасат мешіті</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card--glass reveal">
+            <h4>Тарауих</h4>
+            <div class="personRow">
+              <img class="avatar" src="qari.jpg" alt="Қари фотосы" draggable="false" />
+              <div>
+                <div class="name" id="qariName">Жұмағұл Ырысалды</div>
+                <div class="muted small" id="qariNote">Тарауих намазын оқитын қари</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card--glass reveal">
+          <h3>Байланыс (WhatsApp)</h3>
+          <p class="muted">Ауызashарға жазылу үшін WhatsApp арқылы жазыңыз:</p>
+
+          <div class="contactsGrid">
+            <a class="waBtn" id="waImam" href="#" rel="noreferrer">
+              <span class="waIcon" aria-hidden="true"></span>
+              <span>WhatsApp (Бас имам)</span>
+            </a>
+
+            <a class="waBtn" id="waUstaz" href="#" rel="noreferrer">
+              <span class="waIcon" aria-hidden="true"></span>
+              <span>WhatsApp (Дәурен ұстаз)</span>
+            </a>
+          </div>
+
+          <p class="muted small">
+            Хабарламада: күні, адам саны (мысалы: 100 адам), аты-жөніңізді жазыңыз.
+          </p>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- LIGHTBOX (NO NEW TAB) -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Жабу">✕</button>
+    <div class="lightbox__inner" id="lightboxInner">
+      <img id="lightboxImg" src="./ramazan-atyrau-2026.png" alt="Рамазан кестесі" draggable="false" />
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container footerRow">
+      <span>© <span id="year"></span> Парасат мешіті</span>
+      <a href="index.html" class="toTop">Басты бет ↑</a>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
