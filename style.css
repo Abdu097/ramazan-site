@@ -174,8 +174,6 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: 0 12px 40px rgba(0,0,0,.25);
 }
 .card--glass{
-  padding:22px;
-}
   background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
 }
 .card h3{ margin:0 0 10px; font-size: 20px; }
@@ -190,9 +188,7 @@ a{ color:inherit; text-decoration:none; }
 .personRow{ display:flex; gap:10px; align-items:center; }
 .personRow .muted.small{
 .avatar{
-  width:72px;
-  height:72px;
-  border-radius:16px;
+  width:46px; height:46px; border-radius:14px;
   object-fit:cover;
   border:1px solid rgba(242,198,122,.22);
   background: rgba(0,0,0,.25);
