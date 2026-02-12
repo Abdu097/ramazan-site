@@ -4,6 +4,39 @@ const CONTACTS = {
   imamPhone: "87074108282",  // Бас имам
 };
 
+const DAY_NAMES = [
+  "бірінші",
+  "екінші",
+  "үшінші",
+  "төртінші",
+  "бесінші",
+  "алтыншы",
+  "жетінші",
+  "сегізінші",
+  "тоғызыншы",
+  "оныншы",
+  "он бірінші",
+  "он екінші",
+  "он үшінші",
+  "он төртінші",
+  "он бесінші",
+  "он алтыншы",
+  "он жетінші",
+  "он сегізінші",
+  "он тоғызыншы",
+  "жиырмасыншы",
+  "жиырма бірінші",
+  "жиырма екінші",
+  "жиырма үшінші",
+  "жиырма төртінші",
+  "жиырма бесінші",
+  "жиырма алтыншы",
+  "жиырма жетінші",
+  "жиырма сегізінші",
+  "жиырма тоғызыншы",
+  "отызыншы"
+];
+
 const START_DATE = "2026-02-19";
 const DAYS_COUNT = 30;
 
@@ -215,7 +248,10 @@ function renderSchedule(){
     if (rows){
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td><strong>${d.day}-күн</strong><div class="cellMuted">${esc(d.weekday)}</div></td>
+        <td>
+  <strong>Рамазанның ${DAY_NAMES[d.day - 1]} күні</strong>
+  <div class="cellMuted">${esc(d.weekday)}</div>
+</td>
         <td>${esc(d.dateText)}</td>
         <td>${statusBadge(d.status)}</td>
         <td>${peopleHtml}</td>
@@ -235,7 +271,9 @@ function renderSchedule(){
       const mobileBtnText = d.status === "free" ? "Жазылу (WhatsApp)" : "Нақтылау (WhatsApp)";
 
       cell.innerHTML = `
-  <div class="dayCell__num">${d.day}</div>
+  <div class="dayCell__num">
+  Рамазанның ${DAY_NAMES[d.day - 1]} күні
+</div>
   <div class="dayCell__date">${esc(d.dateText)}</div>
 
   <div style="margin-top:6px; font-weight:700;">
