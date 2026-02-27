@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="kk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Садақа — Парасат мешіті</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Фон және эффект -->
+  <div class="bg">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="particles" id="particles" aria-hidden="true"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__row">
+      <a class="brand" href="index.html">
+        <span class="brand__moon">☾</span>
+        <span class="brand__text">
+          <span class="brand__title">Садақа</span>
+          <span class="brand__sub">Парасат мешіті</span>
+        </span>
+      </a>
+    </div>
+    <div class="scrollFill" id="scrollFill"></div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Садақа және қолдау</h2>
+        <p class="muted">
+          Парасат мешітінің діни қызметін қолдау үшін QR арқылы немесе Kaspi арқылы садақа жасау
+        </p>
+      </div>
+
+      <div class="card reveal">
+
+        <h3>QR арқылы садақа жасау</h3>
+
+        <!-- QR блок -->
+        <div style="
+          display:grid;
+          grid-template-columns:1fr 1fr;
+          gap:16px;
+          margin-top:12px;
+        ">
+
+          <div class="card card--glass" style="text-align:center;">
+            <img src="qr1.jpg"
+                 alt="Kaspi"
+                 style="width:100%; max-width:220px; border-radius:16px; border:1px solid rgba(255,255,255,.12);"
+                 draggable="false">
+          </div>
+
+          <div class="card card--glass" style="text-align:center;">
+            <img src="qr2.jpg"
+                 alt="Halyk"
+                 style="width:100%; max-width:220px; border-radius:16px; border:1px solid rgba(255,255,255,.12);"
+                 draggable="false">
+          </div>
+        </div>
+
+        <!-- Телефонға адаптация -->
+        <style>
+          @media (max-width:720px){
+            .card.reveal > div{
+              grid-template-columns:1fr !important;
+            }
+          }
+        </style>
+
+        <!-- Kaspi кнопка -->
+        <div style="margin-top:20px; text-align:center;">
+          <a class="btn btn--primary"
+             href="https://kaspi.kz/pay/DUMKUniversla?subservice_id=23997&region_id=39&started_from=share"
+             target="_blank"
+             rel="noreferrer"
+             style="min-width:260px;">
+            Kaspi сілтеме арқылы садақа жасау
+          </a>
+        </div>
+
+        <!-- Мәтін -->
+        <p class="muted small" style="margin-top:14px; text-align:center;">
+          Садақаңыз қабыл болсын 🤲✨
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footerRow">
+      <span>© <span id="year"></span> Парасат мешіті</span>
+      <a href="index.html" class="toTop">Басты бет ↑</a>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
